@@ -1,25 +1,23 @@
-<footer class="is-size-5 is-size-6-mobile">
-  <div>
-    <button class="button">
-      <i class="fa fa-arrow-left"></i>
-    </button>
-  </div>
+<footer class="is-size-5 is-size-6-mobile has-background-dark">
+  <a
+    class="has-text-light"
+    [routerLink]="['/']"
+    routerLinkActive="has-text-primary"
+    [routerLinkActiveOptions]="{ exact: true }"
+    ><span>Home</span></a
+  >
 
-  <div>
-    <a class="has-text-link is-underlined"><span>Home</span></a>
-  </div>
+  <a
+    class="has-text-light"
+    [routerLink]="['/skills']"
+    routerLinkActive="has-text-primary"
+    >Skills</a
+  >
 
-  <div>
-    <a class="has-text-link">Skills</a>
-  </div>
-
-  <div>
-    <a class="has-text-link">Projects</a>
-  </div>
-
-  <div>
-    <button class="button">
-      <i class="fa fa-arrow-right"></i>
-    </button>
-  </div>
+  <a
+    class="has-text-light"
+    [routerLink]="['/projects']"
+    routerLinkActive="has-text-primary"
+    >Projects</a
+  >
 </footer>
