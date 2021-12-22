@@ -1,0 +1,11 @@
+header {
+  img {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .is-flex {
+    flex-direction: column;
+  }
+}
