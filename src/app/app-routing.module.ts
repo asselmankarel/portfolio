@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Components
 import { HomeComponent } from './components/home/home.component';
-import { E404Component } from './components/e404/e404.component';
+import { E404Component } from './components/shared/e404/e404.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

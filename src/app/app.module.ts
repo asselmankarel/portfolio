@@ -6,14 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 import { SkillComponent } from './components/skills/skill.component';
 import { SkillListComponent } from './components/skills/skill-list.component';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './components/shared/header/header.component';
 import { StoreModule } from '@ngrx/store';
 import { ProjectModule } from './project/project.module';
-import { E404Component } from './components/e404/e404.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { E404Component } from './components/shared/e404/e404.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [

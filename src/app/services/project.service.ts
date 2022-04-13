@@ -12,10 +12,7 @@ export class ProjectService {
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<IProject[]> {
-    return this.http.get<[]>(this.url).pipe(
-      //tap((data) => console.log('All: ', JSON.stringify(data))),
-      catchError(this.handleError)
-    );
+    return this.http.get<[]>(this.url).pipe(catchError(this.handleError));
   }
 
   private handleError(err: HttpErrorResponse) {

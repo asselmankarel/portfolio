@@ -16,7 +16,6 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
     this.projectService.getProducts().subscribe({
       next: (projects) => {
-        console.log(projects);
         this.projects = projects.sort((a, b) =>
           this.compare(a.language, b.language)
         );
