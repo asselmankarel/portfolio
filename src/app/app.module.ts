@@ -10,7 +10,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SkillComponent } from './components/skills/skill.component';
 import { SkillListComponent } from './components/skills/skill-list.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ProjectsComponent } from './components/projects/projects.component';
+import { StoreModule } from '@ngrx/store';
+import { ProjectModule } from './project/project.module';
+import { E404Component } from './components/e404/e404.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,16 @@ import { ProjectsComponent } from './components/projects/projects.component';
     SkillComponent,
     SkillListComponent,
     HeaderComponent,
-    ProjectsComponent,
+    E404Component,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FontAwesomeModule,
+    StoreModule.forRoot({}, {}),
+    ProjectModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

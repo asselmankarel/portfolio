@@ -1,0 +1,33 @@
+<h3 class="title">Projects on Github</h3>
+<a
+  *ngFor="let project of projects"
+  class="box mb-2"
+  href="{{ project.html_url }}"
+  target="#blank"
+>
+  <article
+    class="is-flex is-align-items-center is-justify-content-space-between"
+  >
+    <span class="has-text-weight-semibold">{{ project.name }}</span>
+    <div *ngIf="project?.language">
+      <div [ngSwitch]="project.language">
+        <div *ngSwitchCase="'HTML'" class="tag is-info is-lowercase">
+          {{ project.language }}
+        </div>
+        <div *ngSwitchCase="'Ruby'" class="tag is-danger is-lowercase">
+          {{ project.language }}
+        </div>
+        <div *ngSwitchCase="'JavaScript'" class="tag is-warning is-lowercase">
+          {{ project.language }}
+        </div>
+        <div *ngSwitchCase="'C#'" class="tag is-success is-lowercase">
+          {{ project.language }}
+        </div>
+        <div *ngSwitchDefault="" class="tag is-primary is-lowercase">
+          {{ project.language }}
+        </div>
+      </div>
+    </div>
+  </article>
+</a>
+<p class="pb-6"> </p>
