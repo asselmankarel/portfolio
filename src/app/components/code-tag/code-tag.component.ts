@@ -28,9 +28,13 @@ export class CodeTagComponent implements OnInit {
         break;
       case 'javascript':
         style = 'is-warning';
+        this.language = 'js';
         break;
       case 'c#':
         style = 'is-success';
+        break;
+      case 'scss':
+        style = 'is-link';
         break;
       default:
         style = 'is-primary';

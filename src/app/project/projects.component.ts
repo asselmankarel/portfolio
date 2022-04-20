@@ -1,6 +1,5 @@
-import { compileDeclareClassMetadata } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { faLanguage } from '@fortawesome/free-solid-svg-icons';
+import { NgToastService } from 'ng-angular-popup';
 import { ProjectService } from '../services/project.service';
 import { IProject } from './IProject';
 
@@ -12,7 +11,10 @@ import { IProject } from './IProject';
 export class ProjectsComponent implements OnInit {
   projects: IProject[] = [];
 
-  constructor(private projectService: ProjectService) {}
+  constructor(
+    private projectService: ProjectService,
+    private toast: NgToastService
+  ) {}
 
   ngOnInit(): void {
     this.projectService.getGithubProjects().subscribe({
@@ -51,7 +53,16 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
+  getLanguagesForProject(project: IProject): string[] {
+    return Object.keys(project.languages);
+  }
+
   copyUrlToClipBoard(url: string) {
     navigator.clipboard.writeText(url);
+    this.toast.info({
+      detail: 'Url',
+      summary: 'copied to clipboard',
+      duration: 1200,
+    });
   }
 }

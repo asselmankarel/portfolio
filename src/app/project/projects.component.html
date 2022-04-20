@@ -6,8 +6,15 @@
       <section
         class="is-flex is-align-items-center is-justify-content-space-between"
       >
-        <span class="has-text-weight-semibold">{{ project.name }}</span>
-        <app-code-tag language="{{ project.language }}"></app-code-tag>
+        <div class="has-text-weight-semibold">{{ project.name }}</div>
+        <div>
+          <span
+            class="mr-1"
+            *ngFor="let language of project.languages | keyvalue"
+          >
+            <app-code-tag language="{{ language.key }}"></app-code-tag>
+          </span>
+        </div>
       </section>
     </a>
     <section class="is-flex is-align-items-center mt-2">

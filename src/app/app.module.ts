@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { ProjectModule } from './project/project.module';
 import { E404Component } from './components/shared/e404/e404.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     StoreModule.forRoot({}, {}),
     ProjectModule,
     HttpClientModule,
+    NgToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
