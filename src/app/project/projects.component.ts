@@ -1,5 +1,6 @@
 import { compileDeclareClassMetadata } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { faLanguage } from '@fortawesome/free-solid-svg-icons';
 import { ProjectService } from '../services/project.service';
 import { IProject } from './IProject';
 
@@ -14,11 +15,13 @@ export class ProjectsComponent implements OnInit {
   constructor(private projectService: ProjectService) {}
 
   ngOnInit(): void {
-    this.projectService.getProducts().subscribe({
+    this.projectService.getGithubProjects().subscribe({
       next: (projects) => {
         this.projects = projects.sort((a, b) =>
           this.compare(a.language, b.language)
         );
+        this.getLanguagesForProjects();
+        console.log(this.projects);
       },
       error: (error) => {
         console.error(error);
@@ -31,5 +34,24 @@ export class ProjectsComponent implements OnInit {
     const nameB = b?.toLowerCase();
     if (nameA < nameB) return -1;
     return 1;
+  }
+
+  getLanguagesForProjects() {
+    if (this.projects?.length > 0) {
+      this.projects.forEach((project) => {
+        this.projectService.getProjectLanguages(project.name).subscribe({
+          next: (languages) => {
+            project.languages = languages;
+          },
+          error: (error) => {
+            console.error(error);
+          },
+        });
+      });
+    }
+  }
+
+  copyUrlToClipBoard(url: string) {
+    navigator.clipboard.writeText(url);
   }
 }

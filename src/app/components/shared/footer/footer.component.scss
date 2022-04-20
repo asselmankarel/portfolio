@@ -1,6 +1,6 @@
 footer {
   position: fixed;
-  padding: 1.25rem 1rem;
+  padding: 0.75rem 1rem;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -8,4 +8,8 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 1.25rem;
+}
+
+footer a {
+  padding: 0.5rem 1rem;
 }

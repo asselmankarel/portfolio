@@ -1,18 +1,26 @@
+import { IProject, IProjectLanguages } from './../project/IProject';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, tap, throwError } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { IProject } from '../project/IProject';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectService {
-  private url = 'https://api.github.com/users/asselmankarel/repos';
+  private user = 'asselmankarel';
+  private urlProjects = `https://api.github.com/users/${this.user}/repos`;
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<IProject[]> {
-    return this.http.get<[]>(this.url).pipe(catchError(this.handleError));
+  getGithubProjects(): Observable<IProject[]> {
+    return this.http
+      .get<[]>(this.urlProjects)
+      .pipe(catchError(this.handleError));
+  }
+
+  getProjectLanguages(projectName: string): Observable<IProjectLanguages> {
+    const urlLanguages = `https://api.github.com/repos/asselmankarel/${projectName}/languages`;
+    return this.http.get<{}>(urlLanguages).pipe(catchError(this.handleError));
   }
 
   private handleError(err: HttpErrorResponse) {
