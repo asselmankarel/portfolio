@@ -7,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CodeTagComponent implements OnInit {
   @Input() language: string = '';
-
-  styles = 'tag is-lowercase has-text-weight-semibold';
+  tagStyle: string = '';
 
   constructor() {}
 
@@ -18,28 +17,30 @@ export class CodeTagComponent implements OnInit {
   }
 
   setStyleForLanguage(language: string) {
-    let style = '';
     switch (language) {
       case 'html':
-        style = 'is-info';
+        this.tagStyle = 'is-info is-light';
         break;
       case 'ruby':
-        style = 'is-danger';
+        this.tagStyle = 'is-danger';
         break;
       case 'javascript':
-        style = 'is-warning';
+        this.tagStyle = 'is-warning';
         this.language = 'js';
         break;
+      case 'typescript':
+        this.tagStyle = 'is-info';
+        this.language = 'ts';
+        break;
       case 'c#':
-        style = 'is-success';
+        this.tagStyle = 'is-success';
         break;
       case 'scss':
-        style = 'is-link';
+        this.tagStyle = 'is-link';
         break;
       default:
-        style = 'is-primary';
+        this.tagStyle = 'is-primary';
         break;
     }
-    this.styles = `${this.styles} ${style}`;
   }
 }

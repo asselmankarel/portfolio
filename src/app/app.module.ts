@@ -11,10 +11,11 @@ import { SkillComponent } from './components/skills/skill.component';
 import { SkillListComponent } from './components/skills/skill-list.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { StoreModule } from '@ngrx/store';
-import { ProjectModule } from './project/project.module';
 import { E404Component } from './components/shared/e404/e404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgToastModule } from 'ng-angular-popup';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -32,9 +33,13 @@ import { NgToastModule } from 'ng-angular-popup';
     AppRoutingModule,
     FontAwesomeModule,
     StoreModule.forRoot({}, {}),
-    ProjectModule,
     HttpClientModule,
     NgToastModule,
+    StoreDevtoolsModule.instrument({
+      name: 'Porfolio app dev tools',
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

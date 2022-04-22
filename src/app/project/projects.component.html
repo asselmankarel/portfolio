@@ -1,5 +1,15 @@
 <h3 class="title">Projects on Github</h3>
 
+<div *ngIf="error" class="message is-danger">
+  <div class="message-body">
+    <div class="is-size-4">{{ error }}</div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="p-5">
+  <progress class="progress is-medium is-dark" max="100">30%</progress>
+</div>
+
 <div *ngFor="let project of projects">
   <div class="box mb-1" *ngIf="project?.language">
     <a href="{{ project.html_url }}" target="#blank">

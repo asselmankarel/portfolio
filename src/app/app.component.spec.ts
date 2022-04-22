@@ -19,15 +19,6 @@ describe('AppComponent', () => {
   it(`should have as title 'Full Stack Web Developer'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Full Stack Web Developer');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'angular-portfolio app is running!'
-    );
+    expect(app.title).toEqual('angular-portfolio');
   });
 });
